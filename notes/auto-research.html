@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>自我優化 AI：Auto Research 實戰應用｜課堂筆記整理</title>
+  <style>
+    @page { size: A4; margin: 18mm 16mm 18mm 16mm; }
+    body { font-family: "PingFang TC", "Microsoft JhengHei", "Heiti TC", sans-serif; line-height: 1.9; color: #1f1f1f; background: #fff; margin: 0; font-size: 15px; }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 4px 2px 24px; }
+    .topline { font-size: 13px; color: #7f5f47; margin-bottom: 8px; font-weight: 600; }
+    h1 { font-size: 28px; line-height: 1.4; color: #7a2020; margin: 0 0 10px; font-weight: 800; }
+    .meta { font-size: 14px; color: #5f5f5f; margin-bottom: 24px; }
+    .intro { font-size: 15px; margin-bottom: 20px; }
+    h2 { font-size: 20px; margin-top: 28px; margin-bottom: 12px; font-weight: 800; padding: 7px 12px; border-left: 6px solid; border-radius: 4px; }
+    h3 { font-size: 16px; margin-top: 16px; margin-bottom: 8px; font-weight: 700; }
+    .topic-1 { color: #8a4b1f; background: linear-gradient(to right, #f9f0e2 0%, #fff 90%); border-left-color: #c7832f; }
+    .topic-2 { color: #6a2d91; background: linear-gradient(to right, #f4ebfb 0%, #fff 90%); border-left-color: #8d5bc7; }
+    .topic-3 { color: #165c5a; background: linear-gradient(to right, #e9f8f6 0%, #fff 90%); border-left-color: #2a9d8f; }
+    .topic-4 { color: #204f7a; background: linear-gradient(to right, #eaf3fb 0%, #fff 90%); border-left-color: #4c84c3; }
+    .topic-5 { color: #7a243f; background: linear-gradient(to right, #fcecf1 0%, #fff 90%); border-left-color: #d35d85; }
+    .topic-6 { color: #5f3f13; background: linear-gradient(to right, #fbf4e8 0%, #fff 90%); border-left-color: #c89b49; }
+    p { margin: 0 0 14px; text-align: justify; }
+    ul, ol { margin: 0 0 16px 1.25em; padding: 0; }
+    li { margin-bottom: 8px; }
+    strong { color: #4d2c91; font-weight: 800; background: linear-gradient(transparent 60%, #fff1a8 60%); padding: 0 1px; }
+    .hl-orange { background: linear-gradient(transparent 60%, #ffd8a8 60%); }
+    .hl-blue { background: linear-gradient(transparent 60%, #cfe8ff 60%); }
+    .hl-green { background: linear-gradient(transparent 60%, #cfeedd 60%); }
+    .hl-pink { background: linear-gradient(transparent 60%, #ffd8e6 60%); }
+    .key-point { background: #f7f7f7; border-left: 5px solid #9b9b9b; padding: 12px 15px; margin: 18px 0; color: #333; }
+    .highlight { background: #fff8ef; border: 1px solid #efd7b7; padding: 14px 16px; border-radius: 8px; margin: 18px 0; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topline">課堂筆記整理｜2026 年 3 月 27 日</div>
+    <h1>自我優化 AI：Auto Research 實戰應用</h1>
+    <div class="meta">主題聚焦：Andre Karpathy 的 Auto Research 概念、AI 自動實驗、商業應用與自我優化工作流</div>
+
+    <p class="intro">這段影片介紹一個由 <strong class="hl-orange">Andre Karpathy</strong> 發布的開源概念：把 AI 代理放進一個可重複實驗的環境中，令它自動測試、比較結果、保留較好方案，再持續進化。講者進一步示範，這種方法不只可用於訓練模型，亦可實際應用於<strong class="hl-blue">cold email</strong>、<strong class="hl-green">landing page</strong>、<strong class="hl-pink">廣告創意</strong>等商業場景，建立出一條真正會<strong>自己優化自己</strong>的 AI pipeline。</p>
+
+    <div class="key-point">
+      <strong>核心觀點：</strong><br>
+      Auto Research 的關鍵不在於 AI「變聰明」本身，而在於你建立了一個 <strong class="hl-orange">可測量、可修改、可重複</strong> 的實驗閉環，令 AI 代理可以 24/7 不停試、唔停學。
+    </div>
+
+    <h2 class="topic-1">一、甚麼是 Auto Research</h2>
+    <p>影片一開始指出，Karpathy 新釋出的 repo 本質上是一個<strong class="hl-blue">自動化實驗管線</strong>。做法是給 AI 一個小型但真實的實驗環境，讓它自己提出修改、執行測試、讀取結果，再決定保留或丟棄方案。這種方式令 AI 不再只是被動回答問題，而是開始扮演一個主動研究員角色。</p>
+    <p>Karpathy 在模型訓練上的示範，是讓 AI 嘗試改 hyperparameters、跑短時間訓練、比較 validation loss，再迭代優化。講者的重點則是：<strong class="hl-orange">呢個模式其實可以搬去好多賺錢場景</strong>，並不限於 machine learning 本身。</p>
+
+    <h2 class="topic-2">二、Auto Research 的基本結構</h2>
+    <p>整個系統其實很像一個<strong class="hl-green">科學實驗閉環</strong>。每次循環都包括：提出假設、執行測試、量度結果、選出勝方、再根據結果生成下一個版本。只要你有一個夠清晰的成功指標，AI 就能持續朝該方向優化。</p>
+
+    <div class="highlight">
+      <strong>基本元素：</strong>
+      <ol>
+        <li><strong>Hypothesis：</strong> 今次想試甚麼變化？</li>
+        <li><strong>Metric：</strong> 成功與否用甚麼數字衡量？</li>
+        <li><strong>Execution：</strong> AI 如何執行這次改動？</li>
+        <li><strong>Selection：</strong> 哪個版本表現較好？</li>
+        <li><strong>Iteration：</strong> 根據學習結果再推下一輪。</li>
+      </ol>
+    </div>
+
+    <p>重點是：<strong class="hl-orange">你唔需要每次人手做決定</strong>。只要 loop 設得好，AI 代理就可以夜晚自己跑，第二朝你就收到一堆實驗結果。</p>
+
+    <h2 class="topic-3">三、最實際例子：Cold Email 自動優化</h2>
+    <p>講者以自己最熟悉的案例示範：<strong class="hl-blue">cold email copy optimizer</strong>。在這個應用裡，目標 metric 很簡單，就是 <strong class="hl-green">reply rate</strong>。AI 代理每隔幾小時會產生一個新版本的郵件文案，並與 baseline 對照測試。當 challenger 表現更好，它便取代 baseline，繼續往下演化。</p>
+    <p>更重要的是，AI 不只是改一次文案，而是會把每次學到的東西寫進一份資源文件，例如哪些 opening 有效、哪些 CTA 較高轉化、哪些寫法太長。這令系統不只是測試，而是<strong class="hl-pink">累積知識</strong>，變成愈跑愈有方向感。</p>
+
+    <h2 class="topic-4">四、可延伸的商業應用場景</h2>
+    <p>影片進一步指出，凡是具備<strong class="hl-orange">清晰 metric + 可修改輸入 + API／工具連接能力</strong>的工作，都可以被 Auto Research 化。Cold email 只是一個開始。</p>
+
+    <ul>
+      <li><strong>Landing page 優化：</strong> 用 conversion rate 作指標，自動改 headline、CTA、版面元素。</li>
+      <li><strong>廣告素材優化：</strong> 根據 CTR、CVR 或 CPA，自動調整角度與文案。</li>
+      <li><strong>客服腳本：</strong> 用 CSAT 或 resolution rate 作為反饋。</li>
+      <li><strong>產品描述與電商頁面：</strong> 用銷售數據作反饋，持續優化文案。</li>
+      <li><strong>YouTube 標題：</strong> 用點擊率與觀看表現做優化。</li>
+    </ul>
+
+    <p>換句話說，Auto Research 並不是某個單一工具，而是一種<strong class="hl-blue">工作設計哲學</strong>：把本來由人慢慢做 A/B test 的流程，變成由 AI 代理持續做、持續記錄、持續進化。</p>
+
+    <h2 class="topic-5">五、要令 Auto Research 成功，必須滿足的條件</h2>
+    <p>講者最後也提醒，不是所有事情都適合這種全自動優化。若你要真正用得好，至少要滿足幾個條件。</p>
+
+    <div class="highlight">
+      <strong>三個必要條件：</strong>
+      <ol>
+        <li><strong>快速回饋循環：</strong> 愈快知道結果，迭代愈快。</li>
+        <li><strong>清晰而客觀的 metric：</strong> 例如 reply rate、conversion rate、validation loss。</li>
+        <li><strong>可以修改輸入的接口：</strong> API、CLI、Chrome DevTools MCP 等。</li>
+      </ol>
+    </div>
+
+    <p>如果你冇 metric，AI 唔知咩叫做好；如果你冇 API 或工具接口，AI 就算想到改法都無法執行。所以真正難的唔係 prompt，而係你有冇把整個問題定義成一個<strong class="hl-green">可優化系統</strong>。</p>
+
+    <h2 class="topic-6">六、總結：AI 不只是幫你做事，而是幫你不停試</h2>
+    <p>這段影片最值得帶走的，不只是 repo 本身，而是整個思維轉變：與其每次叫 AI 幫你做一件事，不如建立一套讓 AI <strong class="hl-orange">自己提出改進、自己測試、自己學習</strong> 的系統。只要這條 pipeline 跑得夠久，最終成果未必只是省時間，而是可能建立出一個比你自己人手更勤力、更持續、更可規模化的優化引擎。</p>
+
+    <div class="key-point">
+      <strong>帶走重點：</strong><br>
+      Auto Research 的真正價值，在於把「一次性使用 AI」升級成「持續性自我優化 AI」。你不是叫它做一次，而是建立一個會愈做愈好的機制。
+    </div>
+  </div>
+</body>
+</html>
