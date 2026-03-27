@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Note｜課堂筆記 PDF 收藏</title>
+  <style>
+    :root{
+      --bg:#f5f7fb;--card:#fff;--text:#1f2937;--muted:#6b7280;--line:#e5e7eb;
+      --primary:#7c3aed;--primary-soft:#f3e8ff;--accent:#2563eb;
+    }
+    *{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+    .wrap{max-width:1000px;margin:0 auto;padding:18px}
+    .hero{background:linear-gradient(135deg,#ffffff,#f3e8ff);border:1px solid var(--line);border-radius:20px;padding:24px;margin-bottom:18px;box-shadow:0 10px 30px rgba(0,0,0,.05)}
+    h1{margin:0 0 8px;font-size:clamp(28px,5vw,44px)}
+    .sub{margin:0;color:var(--muted);font-size:15px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 8px 20px rgba(0,0,0,.04)}
+    .tag{display:inline-block;font-size:12px;padding:4px 10px;border-radius:999px;background:var(--primary-soft);color:var(--primary);font-weight:700;margin-bottom:10px}
+    .title{font-size:20px;font-weight:800;line-height:1.4;margin:0 0 10px}
+    .summary{font-size:14px;color:#374151;margin:0 0 14px}
+    .meta{font-size:13px;color:var(--muted);margin-bottom:14px}
+    .actions{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{display:inline-block;text-decoration:none;padding:10px 14px;border-radius:12px;font-weight:700;font-size:14px}
+    .btn-primary{background:var(--primary);color:#fff}
+    .btn-secondary{background:#eef2ff;color:#3730a3}
+    .footer{margin-top:18px;color:var(--muted);font-size:12px;text-align:center}
+    @media (max-width:720px){.wrap{padding:12px}.grid{grid-template-columns:1fr}.hero{padding:18px}.title{font-size:18px}.actions .btn{flex:1;text-align:center}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <h1>Note</h1>
+      <p class="sub">課堂筆記 PDF 收藏站。手機睇都清楚，方便快速打開、下載、分享。</p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <span class="tag">AI / Coding</span>
+        <h2 class="title">AI Coding 框架比較</h2>
+        <p class="summary">比較 Superpowers、GSD、gstack 同 Auto Research，重點整理各自解決嘅問題、優勢同結構性缺口。</p>
+        <div class="meta">檔名：AI_Coding框架比較_課堂筆記.pdf</div>
+        <div class="actions">
+          <a class="btn btn-primary" href="./pdfs/AI_Coding框架比較_課堂筆記.pdf" target="_blank">打開 PDF</a>
+          <a class="btn btn-secondary" href="./pdfs/AI_Coding框架比較_課堂筆記.pdf" download>下載</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <span class="tag">AI / Automation</span>
+        <h2 class="title">自我優化 AI：Auto Research</h2>
+        <p class="summary">講解 Andrej Karpathy Auto Research 概念，點樣將 AI 變成可持續自我測試、自我優化嘅實驗系統。</p>
+        <div class="meta">檔名：自我優化AI_AutoResearch_課堂筆記.pdf</div>
+        <div class="actions">
+          <a class="btn btn-primary" href="./pdfs/自我優化AI_AutoResearch_課堂筆記.pdf" target="_blank">打開 PDF</a>
+          <a class="btn btn-secondary" href="./pdfs/自我優化AI_AutoResearch_課堂筆記.pdf" download>下載</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <span class="tag">信仰 / 信息</span>
+        <h2 class="title">危機處理：看不見的更關鍵</h2>
+        <p class="summary">整理危機處理信息重點，聚焦情緒、關係、節奏與內在判斷，幫助人在混亂中仍然保留方向感。</p>
+        <div class="meta">檔名：危機處理_課堂筆記_style3.pdf</div>
+        <div class="actions">
+          <a class="btn btn-primary" href="./pdfs/危機處理_課堂筆記_style3.pdf" target="_blank">打開 PDF</a>
+          <a class="btn btn-secondary" href="./pdfs/危機處理_課堂筆記_style3.pdf" download>下載</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <span class="tag">信仰 / 信息</span>
+        <h2 class="title">萬事互相效力</h2>
+        <p class="summary">根據信息整理羅馬書第八章重點，聚焦體貼聖靈、生命平安、牧養下一代與在動盪世代中的盼望。</p>
+        <div class="meta">檔名：萬事互相效力_課堂筆記_v2.pdf</div>
+        <div class="actions">
+          <a class="btn btn-primary" href="./pdfs/萬事互相效力_課堂筆記_v2.pdf" target="_blank">打開 PDF</a>
+          <a class="btn btn-secondary" href="./pdfs/萬事互相效力_課堂筆記_v2.pdf" download>下載</a>
+        </div>
+      </article>
+    </section>
+
+    <p class="footer">Note archive · mobile-first · deployed on Vercel</p>
+  </main>
+</body>
+</html>
