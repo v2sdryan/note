@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>從 pretext 看 AI 如何帶給前端開發新典範｜筆記</title>
+  <style>
+    :root{--bg:#f7f8fc;--card:#fff;--text:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#c2410c;--soft:#ffedd5}
+    *{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
+    .wrap{max-width:860px;margin:0 auto;padding:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}.tag{display:inline-block;background:var(--soft);color:var(--accent);padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700;margin-bottom:10px}h1{margin:0 0 8px;font-size:clamp(26px,5vw,38px)}h2{margin-top:24px;color:#c2410c}p{margin:0 0 14px}ul{margin:0 0 16px 1.2em}.back{display:inline-block;margin-top:18px;text-decoration:none;color:#c2410c;font-weight:700}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <article class="card">
+      <span class="tag">Frontend / AI</span>
+      <h1>從 pretext 看 AI 如何帶給前端開發新典範</h1>
+      <p>呢張圖整理咗一篇關於 <strong>pretext</strong> 嘅討論。重點唔只係「做唔做到酷炫排版」，而係 pretext 令前端工程師可以<strong>唔使直接讀 DOM layout</strong>，就先知道多行文字排版結果，從而避免 reflow、卡頓同高成本運算。作者認為，呢個開源函式庫反映出 AI 時代前端工具設計嘅新方向。</p>
+
+      <h2>重點摘要</h2>
+      <ul>
+        <li>pretext 最近因作者公開分享而急速爆紅，GitHub 短時間內衝上大量 star，社群亦開始討論其背後技術價值。</li>
+        <li>傳統做法如果唔用 pretext，前端工程師通常要直接呼叫瀏覽器 DOM API（例如 <code>getBoundingClientRect</code>）去量字與排版。</li>
+        <li>問題係呢類量測好易觸發 <strong>reflow</strong>，當頁面元素多、版面複雜時，對瀏覽器效能會造成明顯負擔。</li>
+        <li>pretext 嘅突破在於：<strong>唔使先實際渲染到畫面，都可以預先知道文字排版結果</strong>，因此更容易做到動態排版、動畫文字、環繞文字等效果。</li>
+        <li>作者認為最值得思考嘅唔係「以前做唔做到」，而係點解以前冇人將呢類函式庫整理成一個好用、穩定、可重用嘅工具。</li>
+      </ul>
+
+      <h2>一句帶走</h2>
+      <p>pretext 代表嘅唔只係一個排版函式庫，而係一種新典範：<strong>AI 時代嘅前端工具，會更偏向把高成本、低直覺、易踩坑嘅底層細節抽象化，令工程師專注創作同體驗。</strong></p>
+
+      <a class="back" href="../index.html">← 返回首頁</a>
+    </article>
+  </main>
+</body>
+</html>
