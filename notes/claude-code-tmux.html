@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Claude Code 配 tmux｜筆記</title>
+  <style>
+    :root{--bg:#f7f8fc;--card:#fff;--text:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#0f766e;--soft:#dff8f3}
+    *{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
+    .wrap{max-width:860px;margin:0 auto;padding:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}.tag{display:inline-block;background:var(--soft);color:var(--accent);padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700;margin-bottom:10px}h1{margin:0 0 8px;font-size:clamp(26px,5vw,38px)}h2{margin-top:24px;color:#0f766e}p{margin:0 0 14px}ul{margin:0 0 16px 1.2em}.back{display:inline-block;margin-top:18px;text-decoration:none;color:#0f766e;font-weight:700}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <article class="card">
+      <span class="tag">Claude Code / tmux</span>
+      <h1>Claude Code 做到一半斷線？tmux 係救命工具</h1>
+      <p>呢張圖重點講得好實際：如果你長期喺遠端主機、Linux、macOS 上跑 Claude Code，<strong>tmux 幾乎係必備</strong>。原因唔只係方便，而係可以避免中途斷線、誤關 terminal、或者多個 session 同步工作時整個 workflow 崩掉。</p>
+
+      <h2>重點摘要</h2>
+      <ul>
+        <li>作者指出，很多人會在遠端機器上跑 Claude Code，但主控端可能係 Windows/macOS，一開太多 terminal 視窗就容易亂。</li>
+        <li>最慘情況係 Claude Code 跑到一半，手滑關咗 terminal，之前燒咗嘅 token 同工作進度就一齊蒸發。</li>
+        <li>因此作者長期保持一個習慣：<strong>一定在 tmux 裏面啟動 Claude Code</strong>。</li>
+        <li>tmux 對配合 Claude Code 嘅 Swarms / Subagents 特別有用，因為即使主控端視窗關咗，背景 session 仍可繼續跑。</li>
+        <li>做法上可以先開 tmux session，再分 pane，將 Claude Code 放入其中一格，由它持續執行後續任務。</li>
+      </ul>
+
+      <h2>安裝方式</h2>
+      <p><strong>macOS：</strong> <code>brew install tmux</code><br>
+      <strong>Ubuntu：</strong> <code>sudo apt install tmux</code></p>
+
+      <h2>一句帶走</h2>
+      <p>如果你會長時間跑 Claude Code，尤其係遠端開發、子代理、多 session 並行，<strong>tmux 唔係 optional，係保命層級工具</strong>。</p>
+
+      <a class="back" href="../index.html">← 返回首頁</a>
+    </article>
+  </main>
+</body>
+</html>
